@@ -60,10 +60,6 @@ export default function Feed() {
     return <EmptyFeed />;
   }
 
-  if (Date.now() != new Date(2023, 3, 1, 10, 30, 0, 0).getMilliseconds()) {
-    return <FinishedDistribution />
-  }
-
   return (
     <div className="flex flex-col items-center dark:bg-white">
       {data.recommend.length === 0
@@ -96,9 +92,9 @@ export default function Feed() {
                   />
                 );
             })}
-            <div className="flex w-screen justify-center">
+            <div className="flex justify-center w-screen">
               <button
-                className="bg-black w-3/6 flex justify-center"
+                className="flex justify-center w-3/6 bg-black"
                 onClick={() => {
                   markViewed({
                     variables: { userId: data.recommend[cursor].id },
@@ -109,7 +105,7 @@ export default function Feed() {
                 <LeftArrow />
               </button>
               <button
-                className="bg-green-600 w-3/6 flex justify-center"
+                className="flex justify-center w-3/6 bg-green-600"
                 onClick={() => {
                   markViewed({
                     variables: { userId: data.recommend[cursor].id },
